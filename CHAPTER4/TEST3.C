@@ -72,6 +72,7 @@ void main(){
   EuclideanAlgorithm(&a, &b, x, y);
   printf("The squsum is %d,\nand the Greatest Common divisor is %d,\nthe Least Common Multiple is %d. \n",squSum(a,b), a, b);
   getchar();
+  getchar();
 }
 
 
