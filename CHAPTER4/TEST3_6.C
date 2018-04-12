@@ -19,16 +19,15 @@ void main(){
   printf("Please enter some Integers less than 10(End it by enter #):\n");
   while(scanf("%d", &a[i]) != 0){
 	i++;
-	getchar();
-	if(i > 10){
+	if(i >= 10){
 	  break;
 	}
   }
+  getchar();//To catch the unload Char # from the cache pool.
   printf("Please enter the Key to decide the sequence\n");
   scanf("%d", &key);
   BubbleSort(a, i);
   if(key == 1){
-	printf("%d\n", i);
 	for(key = i - 1; key >= 0; key--){
 	  printf("%d\t", a[key]);
 	}
