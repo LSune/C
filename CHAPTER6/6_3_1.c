@@ -32,17 +32,18 @@ void SelectSort(int a[], int n){
 
 void QuickSort(int a[], int left, int right){
   int i, j, temp, token;
-  i = left;
-  j = right;
-  token = a[i];
-  if (i>j){
+
+  if (left>right){
 	  return ;
 	}
-  while (i<j){
-    while (j>i && a[j]<token){
+	i = left;
+  j = right;
+  token = a[i];
+  while (i!=j){
+    while (j>i && a[j]>=token){
       j--;
     }
-    while (j>i && a[i]>token){
+    while (j>i && a[i]<=token){
       i++;
     }
     if (j>i){
