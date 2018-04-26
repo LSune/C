@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
-//# include <alloc.h>
+# include <alloc.h>
 
 void GetSequence(int * a, int size){
   int i;
@@ -11,11 +11,11 @@ void GetSequence(int * a, int size){
 
 void Translation(int * a, int size, int trans){
   int temp, i, j=0;
-  for(i=size; i<trans+size; i++){
+  for(i=size; i<size-trans+size; i++){
     a[i] = a[j];
     j++;
   }
-  a = a[size - trans%size];
+  a = &a[size];
 }
 
 void Show(int * a, int size){
@@ -28,7 +28,7 @@ void Show(int * a, int size){
 int main(){
   int size, trans;
   int * a;
-  printf("Please tell me how many num do you want to input；\n");
+  printf("Please tell me how many num do you want to input:\n");
   scanf("%d", &size);
 
   printf("Please tell me the translation num:\n");
@@ -37,11 +37,12 @@ int main(){
   /**
    * throw the error when facing an error.
    */
-  if(a = (int *)malloc(size+trans) == NULL){
+  if(a = (int *)malloc(size+size-trans) == NULL){
     printf("There is an error!\n");
     return 0;
   }
   else{
+      printf("ok");
   }
   GetSequence(a, size);
   Translation(a, size, trans);
