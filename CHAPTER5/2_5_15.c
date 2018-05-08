@@ -60,23 +60,33 @@ int PlusAll(int a[][n]){
   return sum;
 }
 
-int SearchForBiggest(int a[][n], int * row, int * column){
-  int i, j, max;
+void SearchForBiggest(int a[][n]){
+  int i, j, max, row, cloumn;
   max = a[0][0];
-  * row = 0;
-  * column = 0;
+  row = 0;
+  column = 0;
   for(i=0; i<m; i++){
     for(j=0; j<n; j++){
       if(max < a[i][j]){
-        * row = i;
-        * column = j;
+        row = i;
+        column = j;
         max = a[i][j];
       }
-      else{
+      else if{
       }
     }
   }
-  return max;
+  for (i=0; i<m; i++){
+    for (j=0; j<n; j++){
+      if (a[i][j] == max){
+        /**
+        *Because of the row & the column is always be (the true num) - 1
+        *So we plus 1 to the row & the column
+        */
+        printf("The biggest one in the matrix is: %d\nIts row is: row %d\nIts column is: column %d\n", max, row+1, column+1);
+      }
+    }
+  }
 }
 
 void QuickSort(int a[][stuColumn], int left, int right){
@@ -121,13 +131,8 @@ int main()
   int row, column, max;
   InitialMatrix(a);
   ShowMatrix(a);
-  max = SearchForBiggest(a, &row, &column);
   printf("The sum of every item in the matrix is %d\n", PlusAll(a));
-  /**
-   *Because of the row & the column is always be (the true num) - 1
-   *So we plus 1 to the row & the column
-   */
-  printf("The biggest one in the matrix is: %d\nIts row is: row %d\nIts column is: column %d\n", max, row+1, column+1);
+  SearchForBiggest(a);
   //students part:
   InitialGrades(students);
   QuickSort(students, 0, N-1);
